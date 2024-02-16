@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify, make_response
 from flask_cors import CORS
 from chatbot_response import chatbot_response
-# from waitress import serve
+from waitress import serve
 
 # Model Names
 General = "General"
@@ -64,13 +64,7 @@ def chatbot_disease():
 
 def run_server():
     if __name__ == '__main__':
-        # print()
-        # print("##"*50)
-        # print("App Is Running  Successfully On These APIs")
-        # print("==> http://localhost:5000/ChatBot?msg=")
-        # print("==> http://localhost:5000/ChatBot/Disease?name=")
-        # print("##"*50)
-        # serve(app, host="0.0.0.0", port=5000)
-        app.run()
+        serve(app, port=5000)
+        # app.run()
 
 run_server()
