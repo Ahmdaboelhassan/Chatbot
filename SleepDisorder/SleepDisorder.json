@@ -1,0 +1,185 @@
+{
+  "intents": [
+    {
+      "tag": "sleep",
+      "patterns": [
+        "I have insominia",
+        "I am suffering from insomnia",
+        "I can't sleep.",
+        "I haven't slept for the last days.",
+        "I can't seem to go to sleep.",
+        "I haven't had proper sleep for the past few days."
+      ],
+      "responses": [
+        "Don't worry we can solve the problem together",
+        "This may happen due to life pressures",
+        "I think you are suffering from insomnia and Sleep DisOrder"
+      ]
+    },
+    {
+      "tag": "ar-sleep",
+      "patterns": [
+        "لدي أرق",
+        "أنا أعاني من الأرق",
+        "لا أستطيع النوم",
+        "لم أنم في الأيام الماضية",
+        "لا يبدو أنني أستطيع النوم.",
+        "لم أحصل على نوم مناسب خلال الأيام القليلة الماضية."
+      ],
+      "responses": [
+        "لا تقلق يمكننا حل المشكلة معًا",
+        "قد يحدث هذا بسبب ضغوط الحياة",
+        "أعتقد أنك تعاني من الأرق"
+      ]
+    },
+    {
+      "tag": "fact-1",
+      "patterns": [
+        "What is Insomnia?",
+        "Define Insomnia",
+        "Insomnia!",
+        "sleep disorder!",
+        "What is sleep disorder?"
+      ],
+      "responses": [
+        "A sleep disorder is a condition that affects a person's ability to get enough quality sleep on a regular basis.",
+        "There are many different types of sleep disorders, including insomnia, sleep apnea, narcolepsy, restless legs syndrome, and more.",
+        "Symptoms of sleep disorders can vary depending on the specific type of disorder, but common symptoms may include difficulty falling asleep or staying asleep, excessive daytime sleepiness, loud snoring, irregular breathing during sleep, and difficulty concentrating or remembering things.",
+        "Sleep disorders can be caused by a variety of factors, including stress, anxiety, depression, medical conditions, certain medications, and lifestyle habits."
+      ]
+    },
+    {
+      "tag": "ar-fact-1",
+      "patterns": [
+        "ما هو الأرق؟",
+        "النوم المتقطع؟",
+        "الأرق؟",
+        "عدم الانتظام في النوم"
+      ],
+      "responses": [
+        "اضطراب النوم هو حالة تؤثر على قدرة الشخص على الحصول على قسط كافٍ من النوم الجيد بشكل منتظم.",
+        "هناك العديد من الأنواع المختلفة من اضطرابات النوم، بما في ذلك الأرق، وانقطاع التنفس أثناء النوم، والخدار، ومتلازمة تململ الساقين، وأكثر من ذلك.",
+        "يمكن أن تختلف أعراض اضطرابات النوم اعتمادًا على نوع الاضطراب المحدد، لكن الأعراض الشائعة قد تشمل صعوبة النوم أو البقاء نائمًا، والنعاس المفرط أثناء النهار، والشخير بصوت عالٍ، وعدم انتظام التنفس أثناء النوم، وصعوبة التركيز أو تذكر الأشياء.",
+        "يمكن أن تنتج اضطرابات النوم عن مجموعة متنوعة من العوامل، بما في ذلك التوتر والقلق والاكتئاب والحالات الطبية وبعض الأدوية وعادات نمط الحياة."
+      ]
+    },
+    {
+      "tag": "fact-2",
+      "patterns": [
+        "How do I know I have a sleep disorder?",
+        "What are the symptoms of sleep disorder?",
+        "symptoms of insomnia"
+      ],
+      "responses": [
+        "Difficulty falling asleep or staying asleep, Excessive daytime sleepiness",
+        "Loud snoring, Episodes of stopped breathing during sleep",
+        "Restless legs or periodic limb movement during sleep, Difficulty concentrating or remembering things",
+        "Irritability or mood changes, Waking up frequently during the night",
+        "Difficulty waking up in the morning, Feeling unrefreshed after a night's sleep"
+      ]
+    },
+    {
+      "tag": "ar-fact-2",
+      "patterns": [
+        "كيف يمكنني معرفة أن لدي اضطراب مع النوم؟",
+        "ما اعراض الأرق؟",
+        "أعراض النوم المتقطع؟"
+      ],
+      "responses": [
+        "صعوبة في النوم أو الاستمرار فيه، والنعاس المفرط أثناء النهار",
+        "الشخير بصوت عالٍ، ونوبات تتوقف عن التنفس أثناء النوم",
+        "تململ الساقين أو حركة الأطراف بشكل دوري أثناء النوم، صعوبة في التركيز أو تذكر الأشياء",
+        "التهيج أو تغيرات المزاج، الاستيقاظ بشكل متكرر أثناء الليل",
+        "صعوبة الاستيقاظ في الصباح، والشعور بعدم النشاط بعد النوم ليلاً"
+      ]
+    },
+    {
+      "tag": "fact-3",
+      "patterns": [
+        "Will sleep disorder affect my life?",
+        "What are the dangers of insomnia?",
+        "Is sleep disorder dangerous?",
+        "does insomnia affect health?"
+      ],
+      "responses": [
+        "Sleep disorders can have a significant impact on a person's overall health and well-being, also  can impair cognitive function, leading to difficulties with concentration memory, and decision-making, This can lead to serious health complications if left untreated.",
+        "Chronic sleep deprivation and poor quality sleep can lead to a range of health issues, including an increased risk of heart disease, stroke, diabetes, obesity, and mental health disorders such as depression and anxiety.",
+        "In some cases, certain sleep disorders, such as sleep apnea, can also pose immediate dangers due to the potential for interrupted breathing during sleep."
+      ]
+    },
+    {
+      "tag": "ar-fact-3",
+      "patterns": [
+        "هل النوم المتقطع يؤثر على الحياة؟",
+        "ما هي مخاطر الأرق؟",
+        "هل النوم الغير منتظم خطر؟",
+        "تأثير الأرق على الصحة؟"
+      ],
+      "responses": [
+        "يمكن أن يكون لاضطرابات النوم تأثير كبير على صحة الشخص ورفاهيته بشكل عام، كما يمكن أن تضعف الوظيفة الإدراكية، مما يؤدي إلى صعوبات في التركيز والذاكرة، واتخاذ القرار، ويمكن أن يؤدي ذلك إلى مضاعفات صحية خطيرة إذا تركت دون علاج.",
+        "الحرمان من النوم المزمن وسوء نوعية النوم يمكن أن يؤدي إلى مجموعة من المشاكل الصحية، بما في ذلك زيادة خطر الإصابة بأمراض القلب والسكتة الدماغية والسكري والسمنة واضطرابات الصحة العقلية مثل الاكتئاب والقلق.",
+        "في بعض الحالات، يمكن لبعض اضطرابات النوم، مثل انقطاع التنفس أثناء النوم، أن تشكل أيضًا مخاطر فورية بسبب احتمال انقطاع التنفس أثناء النوم."
+      ]
+    },
+    {
+      "tag": "fact-4",
+      "patterns": [
+        "What is the treatment for sleep disorder?",
+        "How can I overcome insomnia?",
+        "How can I get rid of sleep disorder?",
+        "How do I save myself from insomnia?",
+        "Will sports help me overcome my insomnia?",
+        "I can use sports against sleep disorder?"
+      ],
+      "responses": [
+        "Treatment for sleep disorders may include lifestyle changes, such as improving sleep hygiene and establishing a regular sleep schedule, as well as medical interventions like medication or therapy.",
+        "sports play role, Regular physical activity can indeed help improve sleep quality and overall sleep patterns.",
+        "Sports can help regulate your body's internal clock, reduce stress and anxiety, and promote relaxation, all of which can contribute to better sleep.",
+        "it's important to consult with a healthcare professional before starting any new exercise routine, especially if you have a sleep disorder. They can provide personalized recommendations and ensure that exercise is safe and appropriate for your specific situation."
+      ]
+    },
+    {
+      "tag": "ar-fact-4",
+      "patterns": [
+        "ما هو علاج النوم المتقطع؟",
+        "كيف يمكنني التغلب على الأرق؟",
+        "كيف يمكنني التخلص من النوم الغير منتظم؟",
+        "كيف أنقذ نفسي من الأرق؟",
+        "هل للرياضة دور في التغلب على الأرق؟",
+        "هل يمكنني الاستعانة بالرياضة لتنظيم نومي؟"
+      ],
+      "responses": [
+        "قد يشمل علاج اضطرابات النوم تغييرات في نمط الحياة، مثل تحسين نظافة النوم ووضع جدول نوم منتظم، بالإضافة إلى التدخلات الطبية مثل الأدوية أو العلاج.",
+        "تلعب الرياضة دورًا، فالنشاط البدني المنتظم يمكن أن يساعد بالفعل في تحسين جودة النوم وأنماط النوم بشكل عام.",
+        "يمكن أن تساعد الرياضة في تنظيم الساعة الداخلية لجسمك، وتقليل التوتر والقلق، وتعزيز الاسترخاء، وكل ذلك يمكن أن يساهم في نوم أفضل.",
+        "من المهم استشارة أخصائي الرعاية الصحية قبل البدء في أي تمرين روتيني جديد، خاصة إذا كنت تعاني من اضطراب النوم. يمكنهم تقديم توصيات شخصية والتأكد من أن التمرين آمن ومناسب لحالتك المحددة."
+      ]
+    },
+    {
+      "tag": "fact-5",
+      "patterns": [
+        "Do I need a doctor to overcome my sleep disorder?",
+        "Will the doctor help me against insomnia?",
+        "When do I go to the doctor when I suffer from insomnia?"
+      ],
+      "responses": [
+        "if you suspect that you have a sleep disorder, it is important to visit a doctor.",
+        "The doctor can help diagnose the specific sleep disorder you may have and provide appropriate treatment options.",
+        "Ignoring a sleep disorder can have serious consequences for your health, so seeking medical attention is crucial for managing the condition and improving your overall well-being."
+      ]
+    },
+    {
+      "tag": "ar-fact-5",
+      "patterns": [
+        "هل يجب علي الذهاب للدكتور للتغلب على النوم المتقطع؟",
+        "هل الدكتور سيساعدني للتغلب على الأرق؟",
+        "في أي مرحلة من الأرق أذهب للطبيب؟"
+      ],
+      "responses": [
+        "إذا كنت تشك في إصابتك باضطراب في النوم، فمن المهم زيارة الطبيب.",
+        "يمكن للطبيب المساعدة في تشخيص اضطراب النوم المحدد الذي قد تكون مصابًا به وتوفير خيارات العلاج المناسبة.",
+        "يمكن أن يكون لتجاهل اضطراب النوم عواقب وخيمة على صحتك، لذا فإن طلب الرعاية الطبية أمر بالغ الأهمية لإدارة الحالة وتحسين صحتك العامة."
+      ]
+    }
+  ]
+}

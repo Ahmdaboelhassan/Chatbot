@@ -1,0 +1,58 @@
+{
+  "intents": [
+    {
+      "tag": "stressed",
+      "patterns": [
+        "I am so stressed out",
+        "I am so stressed",
+        "I feel stuck",
+        "I still feel stressed",
+        "I am so burned out"
+      ],
+      "responses": [
+        "What do you think is causing this?",
+        "Take a deep breath and gather your thoughts. Go take a walk if possible. Stay hydrated",
+        "Give yourself a break. Go easy on yourself.",
+        "I am sorry to hear that. What is the reason behind this?"
+      ]
+    },
+    {
+      "tag": "no-approach",
+      "patterns": [
+        "I guess not. All I can think about are my exams.",
+        "not really",
+        "i guess not"
+      ],
+      "responses": [
+        "That's no problem. I can see why you'd be stressed out about that. I can suggest you some tips to alleviate this issue. Would you like to learn more about that?"
+      ]
+    },
+    {
+      "tag": "ar-stressed",
+      "patterns": [
+        "أشعر بتوتر شديد",
+        "أنا متوتر للغايه",
+        "أشعر أنني عالق في مكاني",
+        "مازلت أشعر بالتوتر",
+        "أشعر أنني متعب للغايه"
+      ],
+      "responses": [
+        "ما الذي يسبب ذلك في اعتقادك؟",
+        "خذ نفسًا عميقًا واجمع أفكارك. اذهب للنزهة إذا كان ذلك ممكنا. حافظ على رطوبتك",
+        "خذ قسطا من الراحه.خذ الأمور بتروي",
+        "أنا أسف لسماع ذلك.ما السبب وراء ذلك؟"
+      ]
+    },
+    {
+      "tag": "ar-no-approach",
+      "patterns": [
+        "لا أعتقد ذلك. كل ما يمكنني التفكير فيه هو امتحاناتي.",
+        "ليس حقا",
+        "لا أعتقد ذلك"
+      ],
+      "responses": [
+        "هذه ليست مشكلة. أستطيع أن أرى لماذا أنت متوتر بشأن ذلك. يمكنني أن أقترح عليك بعض النصائح للتخفيف من هذه المشكلة. هل ترغب في معرفة المزيد عن ذلك؟"
+      ]
+    }
+  ]
+}
