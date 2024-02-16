@@ -1,3 +1,4 @@
+import nltk
 from nltk import word_tokenize
 from nltk.stem import WordNetLemmatizer
 from pickle import load as load_pickle
@@ -6,6 +7,8 @@ from random import choice as random_choice
 from numpy import array as np_array
 from keras.models import load_model
 from os import path
+
+nltk.download('punkt')
 
 
 
