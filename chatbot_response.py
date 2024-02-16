@@ -9,6 +9,7 @@ from keras.models import load_model
 from os import path
 
 nltk.download('punkt')
+nltk.download('wordnet')
 
 
 
