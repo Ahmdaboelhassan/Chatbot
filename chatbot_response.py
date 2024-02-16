@@ -61,10 +61,10 @@ def get_response(ints, dataset):
 # Paths
 cwd = path.dirname(path.abspath(__file__))
 def get_model_paths(model_name):
-    model = cwd + f"\\{model_name}\\chatbot_model.h5"
-    words = cwd + f"\\{model_name}\\words.pkl"
-    classes = cwd + f"\\{model_name}\\classes.pkl"
-    dataset = cwd + f"\\{model_name}\\{model_name}.json"
+    model = cwd + f"/{model_name}/chatbot_model.h5"
+    words = cwd + f"/{model_name}/words.pkl"
+    classes = cwd + f"/{model_name}/classes.pkl"
+    dataset = cwd + f"/{model_name}/{model_name}.json"
     return model, words, classes, dataset
 
 
