@@ -62,13 +62,15 @@ def chatbot_disease():
 
     return jsonify({'answer': f"I Don't have knowledge About {disease_name} yet"})
 
+def run_server():
+    if __name__ == '__main__':
+        # print()
+        # print("##"*50)
+        # print("App Is Running  Successfully On These APIs")
+        # print("==> http://localhost:5000/ChatBot?msg=")
+        # print("==> http://localhost:5000/ChatBot/Disease?name=")
+        # print("##"*50)
+        # serve(app, host="0.0.0.0", port=5000)
+        app.run()
 
-if __name__ == '__main__':
-    # print()
-    # print("##"*50)
-    # print("App Is Running  Successfully On These APIs")
-    # print("==> http://localhost:5000/ChatBot?msg=")
-    # print("==> http://localhost:5000/ChatBot/Disease?name=")
-    # print("##"*50)
-    # serve(app, host="0.0.0.0", port=5000)
-    app.run()
+run_server()
