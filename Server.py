@@ -63,8 +63,8 @@ def chatbot_disease():
     return jsonify({'answer': f"I Don't have knowledge About {disease_name} yet"})
 
 def run_server():
-    if __name__ == '__main__':
-        serve(app, port=5000)
+    # if __name__ == '__main__':
         # app.run()
+        serve(app, port=5000)
 
 run_server()
