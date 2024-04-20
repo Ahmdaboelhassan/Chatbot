@@ -8,8 +8,10 @@ from numpy import array as np_array
 from keras.models import load_model
 from os import path
 
+# Deployment
 nltk.download('punkt')
 nltk.download('wordnet')
+# Deployment
 
 
 
