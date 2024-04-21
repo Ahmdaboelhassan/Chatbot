@@ -30,7 +30,7 @@ def chatbot():
 
 def run_server():
     # if __name__ == '__main__':
-        app.run()
-        # serve(app, port=5000)
+        # app.run()
+        serve(app, port=5000)
 
 run_server()
