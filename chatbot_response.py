@@ -13,6 +13,14 @@ nltk.download('punkt')
 nltk.download('wordnet')
 # Deployment
 
+# Main Paths
+cwd = path.dirname(path.abspath(__file__)) + "/Final Model"
+
+# load files
+model = load_model(cwd + "/chatbot_model.h5")
+classes = load_pickle(open(cwd + "/classes.pkl", "rb"))
+words = load_pickle(open(cwd + "/words.pkl", 'rb'))
+dataset = load_json(open(cwd + "/DataSet.json", encoding='utf-8').read())
 
 
 def prepare_sentence(current_sentence, current_words):
@@ -34,11 +42,12 @@ def prepare_sentence(current_sentence, current_words):
     return np_array(bag)
 
 
-def predict_class(current_sentence, current_model, current_words, current_classes):
+def predict_class(current_sentence):
     # filter out predictions below a threshold
-    sentence = prepare_sentence(current_sentence, current_words)
+    
+    sentence = prepare_sentence(current_sentence, words)
 
-    res = current_model.predict(np_array([sentence]))[0]
+    res = model.predict(np_array([sentence]))[0]
 
     ERROR_THRESHOLD = 0.1
     results = [[i, r] for i, r in enumerate(res) if r > ERROR_THRESHOLD]
@@ -46,13 +55,14 @@ def predict_class(current_sentence, current_model, current_words, current_classe
     results.sort(key=lambda x: x[1], reverse=True)
     return_list = []
     for r in results:
-        return_list.append({"intent": current_classes[r[0]], "probability": str(r[1])})
-        print({"intent": current_classes[r[0]], "probability": str(r[1])})
+        return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
+        print({"intent": classes[r[0]], "probability": str(r[1])})
 
     return return_list
 
 
-def get_response(ints, dataset):
+def get_response(ints):
+
     result = "I don't Qualfied To Understand this yet"
     if len(ints) != 0:
         tag = ints[0]['intent']
@@ -64,26 +74,6 @@ def get_response(ints, dataset):
     return result
 
 
-# Paths
-cwd = path.dirname(path.abspath(__file__))
-def get_model_paths(model_name):
-    model = cwd + f"/{model_name}/chatbot_model.h5"
-    words = cwd + f"/{model_name}/words.pkl"
-    classes = cwd + f"/{model_name}/classes.pkl"
-    dataset = cwd + f"/{model_name}/{model_name}.json"
-    return model, words, classes, dataset
 
-
-def chatbot_response(msg, model_from_cookie="General"):
-    # Get Paths
-    model_path, words_path, classes_path, dataset_path = get_model_paths(model_from_cookie)
-
-    # load files
-    model = load_model(model_path)
-    classes = load_pickle(open(classes_path, "rb"))
-    words = load_pickle(open(words_path, 'rb'))
-    dataset = load_json(open(dataset_path, encoding='utf-8').read())
-
-    ints = predict_class(msg, model, words, classes)
-    res = get_response(ints, dataset)
-    return res
+def chatbot_response(msg ):
+   return get_response(predict_class(msg))

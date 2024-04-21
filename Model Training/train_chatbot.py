@@ -7,10 +7,10 @@ import nltk
 from nltk.stem import WordNetLemmatizer
 import numpy as np
 from keras.models import Sequential
-from keras.layers import Dense, Activation, Dropout
+from keras.layers import Dense, Dropout
 from keras.optimizers import SGD
 
-CURRENTTRAINMODLE = "Depression"
+CURRENTTRAINMODLE = "DataSet"
 
 
 
@@ -42,8 +42,11 @@ words = [lemmatizer.lemmatize(w.lower()) for w in words if w not in ignore_words
 words = sorted(list(set(words)))
 # sort classes
 classes = sorted(list(set(classes)))
-pickle.dump(words, open(cwd + "\\Final Model" + "\\words.pkl", "wb"))
-pickle.dump(classes, open(cwd + "\\Final Model" + "\\classes.pkl", "wb"))
+# pickle.dump(words, open(cwd + "\\Final Model" + "\\words.pkl", "wb"))
+# pickle.dump(classes, open(cwd + "\\Final Model" + "\\classes.pkl", "wb"))
+
+pickle.dump(words, open(cwd + "/Final Model" + "/words.pkl", "wb"))
+pickle.dump(classes, open(cwd + "/Final Model" + "/classes.pkl", "wb"))
 
 # create our training data
 training = []
@@ -87,6 +90,7 @@ model.compile(loss="categorical_crossentropy", optimizer=sgd, metrics=["accuracy
 hist = model.fit(
     np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1
 )
-model.save(cwd + "\\Final Model" + "\\chatbot_model.h5", hist)
 
+# model.save(cwd + "\\Final Model" + "\\chatbot_model.h5", hist)
+model.save(cwd + "/Final Model" + "/chatbot_model.h5", hist)
 print("model created")
