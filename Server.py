@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, make_response
 from flask_cors import CORS
 from chatbot_response import chatbot_response
 from waitress import serve
-
+import speech_recognition as sr
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -26,7 +26,25 @@ def chatbot():
     answer = chatbot_response(msg)
     return jsonify({'answer': answer}) , 200
 
+@app.route("/ChatBot/Record", methods=["POST"])
+def Chatbot_Record():
+    transcript = ""
+    if "Record" not in request.files:
+        return jsonify({'answer': "Please Send Record" }) , 200
 
+    file = request.files["Record"]
+    if file.filename == "":
+        return jsonify({'answer': "Record was not sent" }) , 404
+
+    if file:
+        recognizer = sr.Recognizer()
+        audioFile = sr.AudioFile(file)
+        with audioFile as source:
+            data = recognizer.record(source)
+            transcript = recognizer.recognize_google(data, key=None)
+                        
+    answer = chatbot_response(transcript)
+    return jsonify({'answer': answer}) , 200
 
 def run_server():
     # if __name__ == '__main__':
