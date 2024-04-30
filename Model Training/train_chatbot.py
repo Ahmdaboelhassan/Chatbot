@@ -10,8 +10,6 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout
 from keras.optimizers import SGD
 
-CURRENTTRAINMODLE = "DataSet"
-
 
 
 cwd = os.path.dirname(os.path.abspath(__file__))
@@ -19,8 +17,7 @@ words = []
 classes = []
 documents = []
 ignore_words = [x for x in punctuation]
-# data_file = open(cwd + "\\TraningData.json").read()
-data_file = open(cwd + f"\\{CURRENTTRAINMODLE}.json", encoding='utf-8').read()
+data_file = open(cwd + "\DataSet.json", encoding='utf-8').read()
 intents = json.loads(data_file)
 
 # Intialize lemmatizer
@@ -40,11 +37,9 @@ for intent in intents["intents"]:
 # lemmaztize and lower each word and remove duplicates
 words = [lemmatizer.lemmatize(w.lower()) for w in words if w not in ignore_words]
 words = sorted(list(set(words)))
+
 # sort classes
 classes = sorted(list(set(classes)))
-# pickle.dump(words, open(cwd + "\\Final Model" + "\\words.pkl", "wb"))
-# pickle.dump(classes, open(cwd + "\\Final Model" + "\\classes.pkl", "wb"))
-
 pickle.dump(words, open(cwd + "/Final Model" + "/words.pkl", "wb"))
 pickle.dump(classes, open(cwd + "/Final Model" + "/classes.pkl", "wb"))
 
@@ -73,6 +68,7 @@ training = np.array(training, dtype=object)
 # create train and test lists. X - patterns, Y - intents
 train_x = list(training[:, 0])
 train_y = list(training[:, 1])
+
 # Create model - 3 layers. First layer 128 neurons, second layer 64 neurons and 3rd output layer contains number of neurons
 # equal to number of intents to predict output intent with softmax
 model = Sequential()
@@ -88,7 +84,7 @@ model.compile(loss="categorical_crossentropy", optimizer=sgd, metrics=["accuracy
 
 # fitting and saving the model
 hist = model.fit(
-    np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1
+    np.array(train_x), np.array(train_y), epochs=150, batch_size=5, verbose=1
 )
 
 # model.save(cwd + "\\Final Model" + "\\chatbot_model.h5", hist)

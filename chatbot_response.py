@@ -49,7 +49,7 @@ def predict_class(current_sentence):
 
     res = model.predict(np_array([sentence]))[0]
 
-    ERROR_THRESHOLD = 0.1
+    ERROR_THRESHOLD = 0.2
     results = [[i, r] for i, r in enumerate(res) if r > ERROR_THRESHOLD]
     # sort by strength of probability
     results.sort(key=lambda x: x[1], reverse=True)

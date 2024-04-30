@@ -22,8 +22,8 @@ def chatbot():
     
     if len(msg) < 2 :
          return jsonify({'answer': "Please Send Valid Msg"}) , 400
-    
     answer = chatbot_response(msg)
+    print(msg)
     return jsonify({'answer': answer}) , 200
 
 @app.route("/ChatBot/Record", methods=["POST"])
@@ -48,7 +48,7 @@ def Chatbot_Record():
 
 def run_server():
     # if __name__ == '__main__':
-        # app.run()
-        serve(app, port=5000)
+        app.run()
+        # serve(app, port=5000)
 
 run_server()
