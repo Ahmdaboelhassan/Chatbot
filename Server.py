@@ -51,7 +51,7 @@ def Chatbot_Record():
 def run_server():
     # if __name__ == '__main__':
         print("Application Run Successfully.... :)")
-        app.run()
-        # serve(app, port=5000)
+        # app.run()
+        serve(app, port=5000)
 
 run_server()
