@@ -18,10 +18,10 @@ def chatbot():
             body = request.json
             msg = body["msg"]
     except:
-        return jsonify({'answer': "An ERROR OCCURED"}) , 400
+        return jsonify({'answer': "An ERROR OCCURED"}) , 200
     
     if len(msg) < 2 :
-         return jsonify({'answer': "Please Send Valid Msg"}) , 400
+         return jsonify({'answer': "Please Send Valid Msg"}) , 200
     answer = chatbot_response(msg)
     print(msg)
     return jsonify({'answer': answer}) , 200
@@ -34,22 +34,24 @@ def Chatbot_Record():
 
     file = request.files["Record"]
     if file.filename == "":
-        return jsonify({'answer': "Record was not sent" }) , 404
-
-    if file:
-        recognizer = sr.Recognizer()
-        audioFile = sr.AudioFile(file)
-        with audioFile as source:
-            data = recognizer.record(source)
-            transcript = recognizer.recognize_google(data, key=None)
-                        
-    answer = chatbot_response(transcript)
-    return jsonify({'answer': answer}) , 200
-
+        return jsonify({'answer': "Record was not sent" }) , 200
+    try :
+        if file:
+            recognizer = sr.Recognizer()
+            audioFile = sr.AudioFile(file)
+            with audioFile as source:
+                data = recognizer.record(source)
+                transcript = recognizer.recognize_google(data, key=None)
+                            
+        answer = chatbot_response(transcript)
+        return jsonify({'answer': answer}) , 200
+    except:
+        return jsonify({'answer': "Something Wrong Happend"}) , 200
+        
 def run_server():
     # if __name__ == '__main__':
-        # app.run()
-        serve(app, port=5000)
         print("Application Run Successfully.... :)")
+        app.run()
+        # serve(app, port=5000)
 
 run_server()
