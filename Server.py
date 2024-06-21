@@ -20,8 +20,6 @@ def chatbot():
     except:
         return jsonify({'answer': "An ERROR OCCURED"}) , 200
     
-    if len(msg) < 2 :
-         return jsonify({'answer': "Please Send Valid Msg"}) , 200
     answer = chatbot_response(msg)
     print(msg)
     return jsonify({'answer': answer}) , 200
@@ -55,3 +53,4 @@ def run_server():
         serve(app, port=5000)
 
 run_server()
+
