@@ -63,7 +63,7 @@ def predict_class(current_sentence):
 
 def get_response(ints):
 
-    result = "I don't Qualfied To Understand this yet"
+    result = "الأمر غير واضح بالنسبة لي هل تستطيع ان تعطيني معلومات اكثر"
     if len(ints) != 0:
         tag = ints[0]['intent']
         list_of_intents = dataset['intents']
