@@ -33,19 +33,22 @@ def Chatbot_Record():
     file = request.files["Record"]
     if file.filename == "":
         return jsonify({'answer': "Record was not sent" }) , 200
-# try :
-    if file:
-        recognizer = sr.Recognizer()
-        audioFile = sr.AudioFile(file)
-        with audioFile as source:
-            data = recognizer.record(source)
-            transcript = recognizer.recognize_google(data)
-    print('#'*80)       
-    answer = chatbot_response(transcript)
-    print('#'*80)       
-    return jsonify({'answer': answer}) , 200
-# except:
-#     return jsonify({'answer': "Something Wrong Happend"}) , 200
+    try :
+        if file:
+            recognizer = sr.Recognizer()
+            audioFile = sr.AudioFile(file)
+            with audioFile as source:
+                data = recognizer.record(source)
+                transcript = recognizer.recognize_google(data)
+        print('#'*80)       
+        answer = chatbot_response(transcript)
+        print('#'*80)       
+        return jsonify({'answer': answer}) , 200
+    except Exception as ex:
+        print('#'*80)       
+        print(ex)
+        print('#'*80) 
+        return jsonify({'answer': "Something Wrong Happend"}) , 200
     
 def run_server():
     # if __name__ == '__main__':
