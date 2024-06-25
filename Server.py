@@ -40,8 +40,9 @@ def Chatbot_Record():
         with audioFile as source:
             data = recognizer.record(source)
             transcript = recognizer.recognize_google(data)
-                        
+    print('#'*80)       
     answer = chatbot_response(transcript)
+    print('#'*80)       
     return jsonify({'answer': answer}) , 200
 # except:
 #     return jsonify({'answer': "Something Wrong Happend"}) , 200
