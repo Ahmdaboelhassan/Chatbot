@@ -40,7 +40,9 @@ def Chatbot_Record():
         filename = str(int(round(time.time() * 1000))) + ".wav"
         cwd = os.path.dirname(os.path.abspath(__file__))
         path = os.path.join(cwd,"Records", filename)
+        print("NOTE :::: Before Save")
         file.save(path)
+        print("NOTE :::: after Save")
 
         if file:
             recognizer = sr.Recognizer()
