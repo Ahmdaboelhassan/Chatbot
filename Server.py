@@ -4,6 +4,7 @@ from chatbot_response import chatbot_response
 from waitress import serve
 import speech_recognition as sr
 import os
+import time
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -33,20 +34,24 @@ def Chatbot_Record():
     file = request.files["Record"]
     if file.filename == "":
         return jsonify({'answer': "Record was not sent" }) , 400
-
-    cwd = os.path.dirname(os.path.abspath(__file__))
-    path = os.path.join(cwd,"Records", file.filename)
-    file.save(path)
     
     try :
+
+        filename = str(int(round(time.time() * 1000))) + ".wav"
+        cwd = os.path.dirname(os.path.abspath(__file__))
+        path = os.path.join(cwd,"Records", filename)
+        file.save(path)
+
         if file:
             recognizer = sr.Recognizer()
             audioFile = sr.AudioFile(path)
             with audioFile as source:
                 audio = recognizer.record(source)
                 text = recognizer.recognize_google(audio)
+
         answer = chatbot_response(text)
         print('#'*80," The Audio Sound => ",answer)       
+
         os.remove(path)
         return jsonify({'answer': answer}) , 200
     except Exception as ex:
