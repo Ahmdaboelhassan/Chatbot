@@ -3,6 +3,7 @@ from flask_cors import CORS
 from chatbot_response import chatbot_response
 from waitress import serve
 import speech_recognition as sr
+import os
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -26,29 +27,31 @@ def chatbot():
 
 @app.route("/ChatBot/Record", methods=["POST"])
 def Chatbot_Record():
-    transcript = ""
     if "Record" not in request.files:
-        return jsonify({'answer': "Please Send Record" }) , 200
+        return jsonify({'answer': "Please Send Record" }) , 400
 
     file = request.files["Record"]
     if file.filename == "":
-        return jsonify({'answer': "Record was not sent" }) , 200
+        return jsonify({'answer': "Record was not sent" }) , 400
+
+    cwd = os.path.dirname(os.path.abspath(__file__))
+    path = os.path.join(cwd,"Records", file.filename)
+    file.save(path)
+    
     try :
         if file:
             recognizer = sr.Recognizer()
-            audioFile = sr.AudioFile(file)
+            audioFile = sr.AudioFile(path)
             with audioFile as source:
-                data = recognizer.record(source)
-                transcript = recognizer.recognize_google(data)
-        print('#'*80)       
-        answer = chatbot_response(transcript)
-        print('#'*80)       
+                audio = recognizer.record(source)
+                text = recognizer.recognize_google(audio)
+        answer = chatbot_response(text)
+        print('#'*80," The Audio Sound => ",answer)       
+        os.remove(path)
         return jsonify({'answer': answer}) , 200
     except Exception as ex:
-        print('#'*80)       
-        print(ex)
-        print('#'*80) 
-        return jsonify({'answer': "Something Wrong Happend"}) , 200
+        print("Expection => ", ex) 
+        return jsonify({'answer': "Something Wrong Happend"}) , 400
     
 def run_server():
     # if __name__ == '__main__':
