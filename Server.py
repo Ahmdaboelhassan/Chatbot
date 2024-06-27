@@ -5,9 +5,12 @@ from waitress import serve
 import speech_recognition as sr
 import os
 import time
+import assemblyai as aai
+
 
 app = Flask(__name__)
 cors = CORS(app)
+aai.settings.api_key = "6ced9089260548e79c6ede9ff7852c20"
 
 # http://localhost:5000/ChatBot?msg=""
 @app.route('/ChatBot/', methods=['GET','POST'])
@@ -40,19 +43,16 @@ def Chatbot_Record():
         filename = str(int(round(time.time() * 1000))) + ".wav"
         cwd = os.path.dirname(os.path.abspath(__file__))
         path = os.path.join(cwd,"Records", filename)
-        print("NOTE :::: Before Save")
         file.save(path)
-        print("NOTE :::: after Save")
+        print("The File Has Been Saved Correctly")
 
-        if file:
-            recognizer = sr.Recognizer()
-            audioFile = sr.AudioFile(path)
-            with audioFile as source:
-                audio = recognizer.record(source)
-                text = recognizer.recognize_google(audio)
+        transcriber = aai.Transcriber()
+        transcript = transcriber.transcribe(path)
+        print("The Text In Audio Is => ", transcript.text)       
 
-        answer = chatbot_response(text)
-        print('#'*80," The Audio Sound => ",answer)       
+        answer = chatbot_response(transcript.text)
+
+        print("The Answer Sound => ",answer)       
 
         os.remove(path)
         return jsonify({'answer': answer}) , 200
