@@ -39,24 +39,26 @@ def Chatbot_Record():
     
     try :    
 
-        audio_file = BytesIO(file.read())
+        # audio_file = BytesIO(file.read())
 
-        transcriber = aai.Transcriber()
-        transcript = transcriber.transcribe(audio_file)
+        # transcriber = aai.Transcriber()
+        # transcript = transcriber.transcribe(audio_file)
         
-        text = transcript.text
+        # text = transcript.text
 
-        print("The Text In Audio Is => ", text)       
+        # print("The Text In Audio Is => ", text)       
 
-        answer = chatbot_response(text)
+        # answer = chatbot_response(text)
 
-        print("The Answer From Model => ", answer)       
-        
-        return jsonify({'answer': text}) , 200
+        # print("The Answer From Model => ", answer)       
+
+        answer = "ahmed"
+
+        return jsonify({'answer': answer}) , 200
     
     except Exception as ex:
         print("Expection => ", ex) 
-        print("Expection From Audio => ", transcript.error) 
+        # print("Expection From Audio => ", transcript.error) 
 
         return jsonify({'answer': "Something Wrong Happend"}) , 400
     
