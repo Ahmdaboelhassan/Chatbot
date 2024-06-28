@@ -52,12 +52,12 @@ def Chatbot_Record():
 
         print("The Answer From Model => ", answer)       
         
-        return jsonify({'answer': answer}) , 200
+        return jsonify({'answer': text}) , 200
     
     except Exception as ex:
         print("Expection => ", ex) 
         print("Expection From Audio => ", transcript.error) 
-        
+
         return jsonify({'answer': "Something Wrong Happend"}) , 400
     
 def run_server():
