@@ -28,39 +28,40 @@ def chatbot():
     print(msg)
     return jsonify({'answer': answer}) , 200
 
-@app.route("/ChatBot/Record", methods=["POST"])
-def Chatbot_Record():
-    if "Record" not in request.files:
-        return jsonify({'answer': "Please Send Record" }) , 400
 
-    file = request.files["Record"]
-    if file.filename == "":
-        return jsonify({'answer': "Record was not sent" }) , 400
+@app.route("/Record", methods=["POST"])
+def record():
+    return jsonify({'answer': "APi WORKS !!"}) , 200
+ 
+    # if "Record" not in request.files:
+    #     return jsonify({'answer': "Please Send Record" }) , 400
+
+    # file = request.files["Record"]
+    # if file.filename == "":
+    #     return jsonify({'answer': "Record was not sent" }) , 400
     
-    try :    
+    # try :    
+    #     audio_file = BytesIO(file.read())
 
-        # audio_file = BytesIO(file.read())
-
-        # transcriber = aai.Transcriber()
-        # transcript = transcriber.transcribe(audio_file)
+    #     transcriber = aai.Transcriber()
+    #     transcript = transcriber.transcribe(audio_file)
         
-        # text = transcript.text
+    #     text = transcript.text
 
-        # print("The Text In Audio Is => ", text)       
+    #     print("The Text In Audio Is => ", text)       
 
-        # answer = chatbot_response(text)
+    #     answer = chatbot_response(text)
 
-        # print("The Answer From Model => ", answer)       
+    #     print("The Answer From Model => ", answer)       
 
-        answer = "ahmed"
-
-        return jsonify({'answer': answer}) , 200
+    #     return jsonify({'answer': answer}) , 200
     
-    except Exception as ex:
-        print("Expection => ", ex) 
-        # print("Expection From Audio => ", transcript.error) 
+    # except Exception as ex:
+    #     print("Expection => ", ex) 
+    #     print("Expection From Audio => ", transcript.error) 
 
-        return jsonify({'answer': "Something Wrong Happend"}) , 400
+    #     return jsonify({'answer': "Something Wrong Happend"}) , 400    
+    
     
 def run_server():
     # if __name__ == '__main__':
