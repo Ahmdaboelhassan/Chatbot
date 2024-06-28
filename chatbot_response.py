@@ -49,7 +49,7 @@ def predict_class(current_sentence):
 
     res = model.predict(np_array([sentence]))[0]
 
-    ERROR_THRESHOLD = 0.2
+    ERROR_THRESHOLD = 0.3
     results = [[i, r] for i, r in enumerate(res) if r > ERROR_THRESHOLD]
     # sort by strength of probability
     results.sort(key=lambda x: x[1], reverse=True)
@@ -64,7 +64,8 @@ def predict_class(current_sentence):
 def get_response(ints):
 
     result = "الأمر غير واضح بالنسبة لي هل تستطيع ان تعطيني معلومات اكثر"
-    if len(ints) != 0:
+    if len(ints) > 0:
+        print("The Ints is => ", ints)
         tag = ints[0]['intent']
         list_of_intents = dataset['intents']
         for i in list_of_intents:
@@ -72,7 +73,6 @@ def get_response(ints):
                 result = random_choice(i['responses'])
                 break
     return result
-
 
 
 def chatbot_response(msg ):

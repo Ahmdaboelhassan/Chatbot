@@ -43,16 +43,21 @@ def Chatbot_Record():
 
         transcriber = aai.Transcriber()
         transcript = transcriber.transcribe(audio_file)
+        
+        text = transcript.text
 
-        print("The Text In Audio Is => ", transcript.text)       
+        print("The Text In Audio Is => ", text)       
 
-        answer = chatbot_response(transcript.text)
+        answer = chatbot_response(text)
 
-        print("The Answer Sound => ",answer)       
+        print("The Answer From Model => ", answer)       
         
         return jsonify({'answer': answer}) , 200
+    
     except Exception as ex:
         print("Expection => ", ex) 
+        print("Expection From Audio => ", transcript.error) 
+        
         return jsonify({'answer': "Something Wrong Happend"}) , 400
     
 def run_server():
